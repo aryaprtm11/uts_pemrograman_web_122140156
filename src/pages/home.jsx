@@ -1,4 +1,10 @@
+import { useCart } from "./cart";
+import IteraLogo from "../assets/itera.png";
+import BurgerMenu from "../component/BurgerMenu";
+
 const Home = () => {
+    const { toggleCart } = useCart();
+
     return (
         <>
             <div className="bg-[#FDFAF6] min-h-screen font-poppins">
@@ -7,37 +13,45 @@ const Home = () => {
                         <div className="flex items-center gap-4">
                             <img src={IteraLogo} alt="Logo Itera" className="h-10 w-auto" />
                             <h1
-                            className="navbar-title font-semibold text-xl sm:text-2xl md:text-3xl"
-                            style={{ fontFamily: "Times New Roman, Times, serif" }}
+                                className="navbar-title font-semibold text-xl sm:text-2xl md:text-3xl"
+                                style={{ fontFamily: "Times New Roman, Times, serif" }}
                             >
-                            Rumah Kayu ITERA
+                                Rumah Kayu ITERA
                             </h1>
                         </div>
 
                         <ul className="hidden md:flex items-center gap-6 text-sm sm:text-base md:text-lg">
                             <li>
-                            <a
-                                href="/"
-                                className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
-                            >
-                                Beranda
-                            </a>
+                                <a
+                                    href="/"
+                                    className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
+                                >
+                                    Beranda
+                                </a>
                             </li>
                             <li>
-                            <a
-                                href="/order"
-                                className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
-                            >
-                                Menu
-                            </a>
+                                <a
+                                    href="/order"
+                                    className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
+                                >
+                                    Menu
+                                </a>
                             </li>
                         </ul>
                         <BurgerMenu toggleCart={toggleCart} />
                     </div>
                 </nav>
+
+                {/* Konten utama */}
+                <main className="pt-[140px] px-6 text-center">
+                    <h2 className="text-3xl font-bold text-[#2E4F4F] mb-4">Selamat Datang di Rumah Kayu ITERA!</h2>
+                    <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                        Nikmati hidangan lezat dan suasana nyaman di tempat kami. Silakan kunjungi menu untuk mulai memesan makanan favorit Anda.
+                    </p>
+                </main>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
