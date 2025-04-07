@@ -39,60 +39,62 @@ const OrderMenu = () => {
         <div className="bg-[#FDFAF6] min-h-screen font-poppins">
             <nav className="fixed top-0 left-0 w-full z-50 bg-[#E4EFE7] p-6 py-6 shadow-lg rounded-b-xl">
                 <div className="flex justify-between items-center w-full px-6">
-                <div className="flex items-center gap-4">
-                    <img src={IteraLogo} alt="Logo Itera" className="h-10 w-auto" />
-                    <h1
-                    className="navbar-title font-semibold text-xl sm:text-2xl md:text-3xl ml-2"
-                    style={{ fontFamily: "Times New Roman, Times, serif" }}
-                    >
-                    Kantin Rumah Kayu ITERA
-                    </h1>
-                </div>
+                    <div className="flex items-center gap-4">
+                        <img src={IteraLogo} alt="Logo Itera" className="h-10 w-auto" />
+                        <h1
+                        className="navbar-title font-semibold text-xl sm:text-2xl md:text-3xl ml-2"
+                        style={{ fontFamily: "Times New Roman, Times, serif" }}
+                        >
+                        Kantin Rumah Kayu ITERA
+                        </h1>
+                    </div>
 
-                <ul className="hidden md:flex items-center gap-6 text-sm sm:text-base md:text-lg">
-                    <li>
-                    <a
-                        href="/"
-                        className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
-                    >
-                        Beranda
-                    </a>
-                    </li>
-                    <li>
-                    <a
-                        href="/order"
-                        className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
-                    >
-                        Menu
-                    </a>
-                    </li>
-                    <li>
-                    <a
-                        href="/bantuan"
-                        className="font-medium hover:bg-[#99BC85] rounded-xl hover:text-white px-5 py-2"
-                    >
-                        Bantuan
-                    </a>
-                    </li>
-                </ul>
-                <BurgerMenu toggleCart={toggleCart} />
+                    <ul className="hidden md:flex items-center gap-6 text-sm sm:text-base md:text-lg">
+                        <li>
+                            <a
+                                href="/"
+                                className="font-medium hover:bg-green-500 rounded-xl hover:text-white px-5 py-2"
+                            >
+                                Beranda
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/order"
+                                className="font-medium hover:bg-green-500 rounded-xl hover:text-white px-5 py-2"
+                            >
+                                Menu
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="/bantuan"
+                                className="font-medium hover:bg-green-500 rounded-xl hover:text-white px-5 py-2"
+                            >
+                                Bantuan
+                            </a>
+                        </li>
+                    </ul>
+                    <BurgerMenu toggleCart={toggleCart} />
                 </div>
             </nav>
 
             <section className="pt-30 px-6 md:px-12 py-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">
-                    <div className="order-1 md:order-none">
-                        <button
+                    <div className="order-1 md:order-none w-full md:w-auto">
+                        <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                            <button
                             onClick={toggleCart}
-                            className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition w-auto md:w-max"
-                        >
+                            className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition self-start md:self-auto"
+                            >
                             <FaShoppingCart />
                             Keranjang
-                        </button>
-                    </div>
-
-                    <div className="order-2 md:order-none w-full md:w-[600px]">
-                        <SearchInput value={searchTerm} onChange={setSearchTerm} />
+                            </button>
+                            
+                            <div className="w-full md:w-[400px] lg:w-[500px] xl:w-[600px]">
+                            <SearchInput value={searchTerm} onChange={setSearchTerm} />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="order-3 md:order-none">

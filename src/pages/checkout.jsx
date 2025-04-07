@@ -4,6 +4,7 @@ import { useCart } from "./cart";
 import PaymentTabs from "../component/paymentTabs";
 import Ewallet from "../component/eWallet";
 import Qris from "../component/qris";
+import Swal from "sweetalert2";
 
 const Checkout = () => {
     const [paymentMethod, setPaymentMethod] = useState("qris");
@@ -13,6 +14,24 @@ const Checkout = () => {
     const { cartItems } = useCart();
 
     const total = cartItems.reduce((sum, item) => sum + Number(item.price), 0);
+
+    const handlePayment = () => {
+        if (paymentMethod === "ewallet" && (!selectedEwallet || !ewalletNumber)) {
+            Swal.fire({
+                icon: "warning",
+                title: "Lengkapi Informasi",
+                text: "Silakan pilih metode e-wallet dan masukkan nomor terlebih dahulu.",
+            });
+            return;
+        }
+      
+        Swal.fire({
+            icon: "success",
+            title: "Pembayaran Berhasil!",
+            text: "Terima kasih, pesanan Anda sedang diproses.",
+            confirmButtonColor: "#22c55e", // green-500
+        });
+    };      
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-white to-green-100 flex items-center justify-center font-poppins p-4 relative">
@@ -70,9 +89,10 @@ const Checkout = () => {
                     {paymentMethod === "qris" && <Qris/>}
 
                     <button
+                        onClick={handlePayment}
                         className="w-full mt-6 bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl text-lg font-semibold transition"
-                    >
-                        Proceed to Payment
+                        >
+                        Bayar
                     </button>
                 </div>
             </div>
