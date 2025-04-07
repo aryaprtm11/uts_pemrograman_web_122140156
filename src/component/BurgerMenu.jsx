@@ -27,16 +27,9 @@ const BurgerMenu = ({ toggleCart }) => {
                 </a>
                 </li>
                 <li>
-                <button
-                    onClick={() => {
-                    toggleCart()
-                    setOpen(false)
-                    }}
-                    className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
-                >
-                    <FaShoppingCart />
-                    Cart
-                </button>
+                <a href="/bantuan" className="block hover:bg-[#99BC85] rounded-lg hover:text-white px-4 py-2">
+                    Bantuan
+                </a>
                 </li>
             </ul>
             </div>
